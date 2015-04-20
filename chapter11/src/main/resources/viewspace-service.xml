@@ -35,4 +35,6 @@
             <tx:method name="get*"/>
         </tx:attributes>
     </tx:advice>
+
+    gets
 </beans>
