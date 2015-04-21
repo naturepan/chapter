@@ -17,9 +17,6 @@
     <bean id="transactionManager"
           class="org.springframework.orm.hibernate3.HibernateTransactionManager"
           p:sessionFactory-ref="sessionFactory" />
-    <bean id="transactionManager"
-          class="org.springframework.orm.hibernate3.HibernateTransactionManager"
-          p:sessionFactory-ref="sessionFactory" />
     <aop:config>
         <aop:pointcut  id="serviceMethod" expression="execution(* com.smart.service.*Service.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethod"/>
