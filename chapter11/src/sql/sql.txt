@@ -1,0 +1,39 @@
+drop table if exists hib.t_viewspace;
+drop table if exists hib.t_spaceview;
+drop table if exists hib.t_user;
+
+create table hib.t_user(
+user_id int(10) not null auto_increment primary key,
+user_name varchar(50) not null ,
+password varchar(10),
+createdate date
+)
+
+select * from hib.t_user;
+
+create table  hib.t_viewspace(
+sapce_id int(10) not null auto_increment primary key,
+space_name varchar(20) not null,
+create_date datetime,
+description varchar(200),
+user_id int,
+foreign key(user_id)  references hib.t_user(user_id) on delete cascade
+)
+
+
+CREATE TABLE `hib`.`t_viewspace` (
+  `sapce_id` INT NOT NULL,
+  `space_name` VARCHAR(45) NULL,
+  `create_date` VARCHAR(45) NULL,
+  `description` VARCHAR(45) NULL,
+  `user_id` INT NULL,
+  PRIMARY KEY (`sapce_id`),
+  INDEX `user_id_idx` (`user_id` ASC),
+  CONSTRAINT `user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `hib`.`t_user` (`user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+
+select * from hib.t_viewspace

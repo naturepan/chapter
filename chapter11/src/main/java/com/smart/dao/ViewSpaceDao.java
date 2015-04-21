@@ -1,12 +1,14 @@
 package com.smart.dao;
 
 import com.smart.demo.ViewSpace;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * Created by Administrator on 2015/4/17.
  */
+@Repository
 public class ViewSpaceDao extends BaseDao<ViewSpace>{
     public List<ViewSpace> findByName(String spaceName){
        String hql = "from ViewSpace vs where vs.spaceName like ?" ;
@@ -19,4 +21,5 @@ public class ViewSpaceDao extends BaseDao<ViewSpace>{
        int id = userId;
         return this.find(hql,id);
     }
+
 }
