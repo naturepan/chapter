@@ -33,7 +33,6 @@
             <tx:method name="delete*"/>
             <tx:method name="add*"/>
             <tx:method name="get*"/>
-            test
         </tx:attributes>
     </tx:advice>
 </beans>
