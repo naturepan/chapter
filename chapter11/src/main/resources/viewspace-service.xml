@@ -34,5 +34,6 @@
             <tx:method name="add*"/>
             <tx:method name="get*"/>
         </tx:attributes>
+        test
     </tx:advice>
 </beans>
