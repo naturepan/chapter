@@ -2,6 +2,7 @@ package com.smart.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
@@ -11,7 +12,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2015/4/17.
  */
-public class BaseDao<T> {
+public class BaseDao<T>  {
     private Class<T> entityclass;
     @Autowired
     private  HibernateTemplate hibernateTemplate;
@@ -27,7 +28,7 @@ public class BaseDao<T> {
      * @return
      */
     public T load(Serializable id){
-        return (T)hibernateTemplate.load(entityclass,id);
+        return (T)getHibernateTemplate().load(entityclass,id);
     }
 
     /**
@@ -35,7 +36,7 @@ public class BaseDao<T> {
      * @return
      */
     public List<T> loadAll(){
-        return hibernateTemplate.loadAll(entityclass);
+        return getHibernateTemplate().loadAll(entityclass);
     }
 
     /**
@@ -44,21 +45,21 @@ public class BaseDao<T> {
      * @return
      */
     public T get(Serializable id){
-        return hibernateTemplate.get(entityclass,id);
+        return getHibernateTemplate().get(entityclass,id);
     }
 
     /**
      * 保存对象
      */
     public void  save(T entity ){
-        hibernateTemplate.save(entity);
+        getHibernateTemplate().save(entity);
     }
 
     /**
      * 删除数据
      */
     public void remove(T entity){
-        hibernateTemplate.delete(entity);
+        getHibernateTemplate().delete(entity);
     }
 
     /**
@@ -66,7 +67,7 @@ public class BaseDao<T> {
      * @param entity
      */
     public void update(T entity){
-        hibernateTemplate.update(entity);
+        getHibernateTemplate().update(entity);
     }
 
     /**
@@ -75,7 +76,7 @@ public class BaseDao<T> {
      * @return
      */
     public List<T> find(String queryString){
-        return hibernateTemplate.find(queryString);
+        return getHibernateTemplate().find(queryString);
     }
 
     /**
@@ -85,6 +86,10 @@ public class BaseDao<T> {
      * @return
      */
     public List<T> find(String queryString,Object...params){
-        return hibernateTemplate.find(queryString,params);
+        return getHibernateTemplate().find(queryString,params);
+    }
+
+    public HibernateTemplate getHibernateTemplate() {
+        return hibernateTemplate;
     }
 }

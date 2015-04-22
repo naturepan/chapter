@@ -113,6 +113,11 @@
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.2</version>
         </dependency>
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
+        </dependency>
         <!--④ 依赖的WEB类库-->
         <dependency>
             <groupId>javax.servlet.jsp</groupId>

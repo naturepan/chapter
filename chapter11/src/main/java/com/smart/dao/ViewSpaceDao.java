@@ -17,8 +17,9 @@ public class ViewSpaceDao extends BaseDao<ViewSpace>{
     }
 
     public List<ViewSpace> findByUserId(int userId){
-       String hql = "from ViewSpace vs left join vs.user user where user.userId=?";
+       String hql = "select vs from ViewSpace vs  where vs.user.userId=?";
        int id = userId;
+        System.out.println("userId="+id);
         return this.find(hql,id);
     }
 

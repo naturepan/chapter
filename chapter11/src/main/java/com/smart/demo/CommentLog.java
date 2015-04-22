@@ -13,7 +13,7 @@ public class CommentLog extends BaseDemo {
     @Column(name="log_id")
     protected int logId;
 
-    @Column(name="log_type")
+    @Column(name="ip")
     protected  String ip;
 
     @Column(name="log_type")

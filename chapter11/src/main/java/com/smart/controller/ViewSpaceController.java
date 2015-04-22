@@ -18,6 +18,10 @@ public class ViewSpaceController  extends BaseController{
     @Autowired
     private ViewSpaceService viewSpaceService;
 
+    @RequestMapping(value = "index.html")
+    public String  login(){
+        return "index";
+    }
     @RequestMapping(value = "spacelist")
     public String  find(ModelMap map){
     int userId = 1;
