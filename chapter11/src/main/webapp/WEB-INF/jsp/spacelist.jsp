@@ -9,12 +9,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <link href="./static/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./static/js/bootstrap.min.js"></script>
     <title>景区列表</title>
 </head>
-<body>
-<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="./static/js/bootstrap.min.js"></script>
+<body class="page-header-fixed">
+<%@ include file="pageHeader.jsp"%>
+<div class="page-container"  style="margin-top: 50px">
+    <%@ include file="menu.jsp"%>
+<div class="page-content">
 <table class="table table-striped">
  <tr>
      <td>景区编码</td>
@@ -27,12 +31,8 @@
         <td>${space.spaceName}</td>
     </tr>
 </c:forEach>
-    <address>
-        <strong>Twitter, Inc.</strong><br>
-        795 Folsom Ave, Suite 600<br>
-        San Francisco, CA 94107<br>
-        <abbr title="Phone">P:</abbr> (123) 456-7890
-    </address>
 </table>
+    </div>
+    </div>
 </body>
 </html>
